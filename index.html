@@ -2,39 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Cine Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Search App</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Link to External CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-white">
-    <div class="container mx-auto p-4">
-        <h1 class="text-4xl font-bold text-center mb-8">Cine Search</h1>
-        <div class="flex justify-center mb-8">
-            <div class="search-container flex space-x-4">
-                <input class="p-2 rounded text-black" id="searchInput" placeholder="Enter movie name" type="text"/>
-                <button class="p-2 bg-red-600 rounded text-white" onclick="fetchMovie()">Search</button>
-            </div>
-        </div>
-        <div class="flex flex-wrap justify-center gap-4" id="movieContainer"></div>
+<body class="p-4">
 
-        <div class="hidden flex flex-col md:flex-row items-center md:items-start mt-8 movie-details-container" id="movieDetailsContainer">
-            <div class="w-full md:w-1/3">
-                <img alt="Movie Poster" class="poster" id="moviePoster"/>
-            </div>
-            <div class="w-full md:w-2/3 p-4">
-                <h2 class="text-2xl font-bold mb-4" id="movieTitle"></h2>
-                <p class="mb-2" id="movieYear"></p>
-                <p class="mb-2" id="movieGenre"></p>
-                <p class="mb-2" id="movieDirector"></p>
-                <p class="mb-2" id="movieCast"></p>
-                <p class="mb-2" id="moviePlot"></p>
-                <p class="mb-2" id="movieRating"></p>
-                <button class="p-2 bg-red-600 rounded text-white mt-4" onclick="backToSearchResults()">Back to Search Results</button>
+    <h1 class="text-3xl font-bold mb-4 text-center">Cine Search</h1>
+    <div class="flex justify-center mb-4">
+        <input type="text" id="searchInput" class="p-2 rounded text-black" placeholder="Search for a movie...">
+        <button onclick="fetchMovie()" class="ml-2 p-2 bg-blue-600 rounded text-white">Search</button>
+    </div>
+
+    <div id="movieContainer" class="flex flex-wrap gap-4 justify-center"></div>
+
+    <div id="movieDetailsContainer" class="hidden max-w-3xl mx-auto">
+        <button onclick="backToSearchResults()" class="mb-4 p-2 bg-gray-700 rounded text-white">⬅ Back to Results</button>
+        <div class="flex flex-col md:flex-row gap-4">
+            <img id="moviePoster" class="w-full md:w-1/3 rounded" alt="Movie Poster">
+            <div class="flex-1">
+                <h2 id="movieTitle" class="text-2xl font-bold mb-2"></h2>
+                <p id="movieYear"></p>
+                <p id="movieGenre"></p>
+                <p id="movieDirector"></p>
+                <p id="movieCast"></p>
+                <p id="moviePlot" class="mt-2"></p>
+                <p id="movieRating" class="mt-2 font-semibold"></p>
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
+
 
